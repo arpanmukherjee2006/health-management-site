@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Simply redirect to index.html regardless of user type or input
-            window.location.href = 'index.html';
+            window.location.href = 'dashboard.html';
             
             // Reset button state (though not needed as we're redirecting)
             loginBtn.textContent = originalBtnText;
