@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(45deg, #ff9500, #ffcc00);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --text-color: #333;
+    --error-color: #e74c3c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.login-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    padding: 30px;
+    width: 100%;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    color: var(--text-color);
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.logo p {
+    color: #666;
+    font-size: 14px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    color: #999;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.user-type {
+    margin-bottom: 25px;
+}
+
+.user-type label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group label {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.radio-group input[type="radio"]:checked + label {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.login-btn:hover {
+    box-shadow: 0 5px 15px rgba(255, 149, 0, 0.4);
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.options a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.options a:hover {
+    color: #ff9500;
+}
+
+/* Error message styling */
+.error {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 20px;
+    }
+    
+    .radio-group label {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+    
+    .options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .options a {
+        margin-bottom: 10px;
+    }
+}

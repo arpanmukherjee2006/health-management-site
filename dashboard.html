@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Data Information & Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h2>HDIMS</h2>
+                </div>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> <span class="menu-text">Dashboard</span></a></li>
+                    <li><a href="#data-entry"><i class="fas fa-edit"></i> <span class="menu-text">Data Entry</span></a></li>
+                    <li><a href="#reports"><i class="fas fa-chart-line"></i> <span class="menu-text">Reports</span></a></li>
+                    <li><a href="#facilities"><i class="fas fa-hospital"></i> <span class="menu-text">Facilities</span></a></li>
+                    <li><a href="#users"><i class="fas fa-users"></i> <span class="menu-text">Users</span></a></li>
+                    <li><a href="#settings"><i class="fas fa-cog"></i> <span class="menu-text">Settings</span></a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <img src="user.webp" alt="User Avatar" class="avatar">
+                <div class="user-details">
+                    <h4>Admin User</h4>
+                    <p>Super Admin</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content" id="main-content">
+            <!-- Header -->
+            <header>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn"><i class="fas fa-bell"></i></button>
+                    <button class="profile-btn"><i class="fas fa-user-circle"></i></button>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="active-section">
+                <div class="section-header">
+                    <h1>Dashboard</h1>
+                    <p>Overview of Health Programs & Schemes</p>
+                </div>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-hospital"></i></div>
+                        <div class="stat-info">
+                            <h3>Facilities</h3>
+                            <p class="stat-number">246</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-procedures"></i></div>
+                        <div class="stat-info">
+                            <h3>Programs</h3>
+                            <p class="stat-number">18</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-file-medical"></i></div>
+                        <div class="stat-info">
+                            <h3>Reports</h3>
+                            <p class="stat-number">584</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-user-md"></i></div>
+                        <div class="stat-info">
+                            <h3>Users</h3>
+                            <p class="stat-number">132</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Program Performance</h3>
+                            <select id="chart-time-filter">
+                                <option>Last Week</option>
+                                <option>Last Month</option>
+                                <option>Last Quarter</option>
+                                <option>Last Year</option>
+                            </select>
+                        </div>
+                        <div class="chart" id="performance-chart">
+                            <!-- Chart will be rendered here by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Geographic Distribution</h3>
+                        </div>
+                        <div class="chart" id="geo-chart">
+                            <!-- Chart will be rendered here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Facility</th>
+                                <th>Department</th>
+                                <th>Program</th>
+                                <th>Metric</th>
+                                <th>Value</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-activity-data">
+                            <!-- Data will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Data Entry Section -->
+            <section id="data-entry">
+                <div class="section-header">
+                    <h1>Data Entry</h1>
+                    <p>Add or Update Health Program Data</p>
+                </div>
+
+                <div class="form-container">
+                    <form id="health-data-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="facility">Facility</label>
+                                <select id="facility" required>
+                                    <option value="">Select Facility</option>
+                                    <option value="city-general">City General Hospital</option>
+                                    <option value="rural-health">Rural Health Center</option>
+                                    <option value="community-clinic">Community Clinic</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <select id="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="pediatrics">Pediatrics</option>
+                                    <option value="maternal">Maternal Health</option>
+                                    <option value="immunization">Immunization</option>
+                                    <option value="nutrition">Nutrition</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="program">Health Program</label>
+                                <select id="program" required>
+                                    <option value="">Select Program</option>
+                                    <option value="immunization">Immunization</option>
+                                    <option value="prenatal">Prenatal Care</option>
+                                    <option value="nutrition">Nutrition Support</option>
+                                    <option value="screening">Health Screening</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="metric">Metric</label>
+                                <select id="metric" required>
+                                    <option value="">Select Metric</option>
+                                    <option value="vaccinations">Vaccinations</option>
+                                    <option value="checkups">Checkups</option>
+                                    <option value="beneficiaries">Beneficiaries</option>
+                                    <option value="sessions">Sessions</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="value">Value</label>
+                                <input type="number" id="value" required min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group full-width">
+                                <label for="notes">Additional Notes</label>
+                                <textarea id="notes" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="btn-secondary">Reset</button>
+                            <button type="submit" class="btn-primary">Submit Data</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="data-preview">
+                    <h3>Recently Added Data</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Facility</th>
+                                <th>Department</th>
+                                <th>Program</th>
+                                <th>Metric</th>
+                                <th>Value</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recently-added-data">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reports Section (placeholder) -->
+            <section id="reports">
+                <div class="section-header">
+                    <h1>Reports</h1>
+                    <p>Generate and View Comprehensive Health Reports</p>
+                </div>
+                <div class="coming-soon">
+                    <i class="fas fa-chart-pie"></i>
+                    <h2>Reports Module</h2>
+                    <p>Advanced reporting features will be available soon</p>
+                </div>
+            </section>
+
+            <!-- Other sections would be added here -->
+        </main>
+
+        <!-- Toast notification for success messages -->
+        <div id="toast" class="toast">
+            <i class="fas fa-check-circle"></i>
+            <span id="toast-message">Data submitted successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Toggle menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeSidebar = document.getElementById('close-sidebar');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            
+            // Toggle sidebar with hamburger menu
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+                mainContent.classList.toggle('expanded');
+            });
+            
+            // Close sidebar with X button
+            closeSidebar.addEventListener('click', function() {
+                sidebar.classList.add('collapsed');
+                mainContent.classList.add('expanded');
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

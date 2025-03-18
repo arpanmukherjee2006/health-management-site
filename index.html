@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDIMS - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="logo">
+                <h1>HDIMS</h1>
+                <p>Health Data Information & Management System</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <div class="input-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                
+                <div class="input-group">
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                
+                <div class="user-type">
+                    <label>Login as:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="hospital" name="userType" value="hospital" checked>
+                        <label for="hospital">Hospital</label>
+                        
+                        <input type="radio" id="department" name="userType" value="department">
+                        <label for="department">Department</label>
+                        
+                        <input type="radio" id="admin" name="userType" value="admin">
+                        <label for="admin">Admin</label>
+                    </div>
+                </div>
+                
+                <a href="index.html"><button type="submit" class="login-btn">Login</button></a>
+                
+                <div class="options">
+                    <a href="#" id="forgotPassword">Forgot Password?</a>
+                    <a href="#" id="contactSupport">Contact Support</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>
